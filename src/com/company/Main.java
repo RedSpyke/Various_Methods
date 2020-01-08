@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
       numberToWords(1010);
       System.out.println(getDigitCount(0));
+      System.out.println(isPalindrome(12321));
 
 
     }
@@ -199,7 +200,6 @@ public class Main {
         }
         int reverseNumber = 0;
         while (number != 0){
-
             int lastDigit = number % 10;
             reverseNumber =reverseNumber * 10 + lastDigit;
             number /=10;
@@ -226,4 +226,21 @@ public static int getDigitCount (int number){
         return digits;
 }
 
+    public static boolean isPalindrome (int number){
+        int originalNumber = number;
+        if (number < 0){
+            number *= -1;
+        }
+        int reverseNumber = 0;
+        while (number != 0){
+            int lastDigit = number % 10;
+            reverseNumber =reverseNumber * 10 + lastDigit;
+            number /=10;
+        }
+        if (originalNumber < 0){
+            reverseNumber *= - 1;
+        }
+        System.out.println("reverse number is "+ reverseNumber);
+        return reverseNumber == originalNumber;
+    }
 }
